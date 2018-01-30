@@ -9,7 +9,7 @@ project(${PROJECT_NAME})
 ## Use all the *.cpp files we found under this folder for the project
 FILE(GLOB SRCS "*.cpp" "*.c")
 
-add_compile_options(-std=c++14)
+add_compile_options(-std=c++1z)
 
 ## Define the executable
 add_executable(${PROJECT_NAME} ${SRCS})
