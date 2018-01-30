@@ -7,7 +7,7 @@ set( PROJECT_NAME "KakuroSolver" )
 project(${PROJECT_NAME})
 
 ## Use all the *.cpp files we found under this folder for the project
-FILE(GLOB SRCS "*.cpp" "*.c")
+FILE(GLOB SRCS "src/*.cpp")
 
 add_compile_options(-std=c++1z)
 
