@@ -6,7 +6,7 @@
 #include <vector>
 #include <set>
 
-namespace utils
+namespace kakuro::utils
 {
     constexpr int max_sum(int squares)
     {

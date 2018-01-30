@@ -2,9 +2,15 @@
 #define KAKURO_H
 
 #include "constants.h"
+#include "square.h"
 
-class kakuro
+namespace kakuro
 {
-};
+    class kakuro
+    {
+    private:
+
+    };
+}
 
 #endif
