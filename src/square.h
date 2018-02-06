@@ -8,8 +8,9 @@ namespace kakuro
     class square
     {
     public:
-        square() = delete;
-        square(int h_sum, int v_sum, bool value_allowed=true);
+        square();
+        void set_sum(int h_sum, int v_sum);
+        int get_value();
 
     private:
         int value;
