@@ -27,7 +27,12 @@ namespace kakuro
         for(int i = 0; i < constants::MAX_ROWS; i++)
         {
             for(int j = 0; j < constants::MAX_ROWS; j++)
-                out << grid[i][j].get_value() << ' ';
+            {
+                if(grid[i][j].is_block())
+                    out << "X ";
+                else
+                    out << grid[i][j].get_value() << ' ';
+            }
             out << "\n";
         }
         out << std::flush;
