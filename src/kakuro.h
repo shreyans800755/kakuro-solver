@@ -13,9 +13,14 @@ namespace kakuro
     public:
         Kakuro() = default;
         void initialize(std::istream&);
-        void print(std::ostream&);
+        void solve();
+        void print(std::ostream&) const;
     private:
         square grid[constants::MAX_ROWS][constants::MAX_ROWS];
+
+        void solve_using_intersection();
+        void solve_using_backtracking();
+        void set_cnt();
     };
 }
 
