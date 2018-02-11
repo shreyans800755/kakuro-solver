@@ -15,25 +15,22 @@ namespace kakuro::utils
 
     namespace precomputation
     {
-        static bool initialized = false;
+        extern std::vector<std::set<int>>
+            possibilities[max_sum(9) + 1][constants::MAX_ROWS + 1];
 
-        static std::vector<std::set<int>>
-            possibilities[max_sum(9) + 1][constants::MAX_ROWS - 1];
-
-        void precompute();
-        std::vector<std::set<int>> sum_split(int sum, int splits);
-        void sum_split_util(std::vector<std::set<int>>& result,
+        static void precompute();
+        static std::vector<std::set<int>> sum_split(int sum, int splits);
+        static void sum_split_util(std::vector<std::set<int>>& result,
                             int sum, int cur_sum,
                             int splits, int cur_splits,
                             std::set<int>& s, int min=0);
 
         void precompute()
         {
-            initialized = true;
             const int max_value = max_sum(9);
             for(int sum = 1; sum <= max_value; sum++)
             {
-                for(int splits = 1; splits <= constants::MAX_ROWS - 1; splits++)
+                for(int splits = 1; splits <= constants::MAX_ROWS; splits++)
                 {
                     int min_poss_sum = max_sum(splits);
                     int max_poss_sum = max_sum(9) - max_sum(9 - splits);
@@ -65,7 +62,7 @@ namespace kakuro::utils
 
             if(cur_splits == splits - 1)
             {
-                if((sum - cur_sum) > min)
+                if((sum - cur_sum) > min && (sum - cur_sum) < 10)
                 {
                     s.insert(sum - cur_sum);
                     result.push_back(s);
